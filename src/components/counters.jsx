@@ -9,15 +9,17 @@ class Counters extends Component {
             {id: 1, value: 1},
             {id: 2, value: 0},
             {id: 3, value: 0},
-            {id: 4, value: 0},
+            {id: 4, value: 0}
         ]
      }; 
     render() 
     { 
-        return (<div>
-            {this.state.counters.map(counter => 
-            <Counter key = {counter.id} value={counter.value} selected={true}/>)}
-        </div>
+        return (
+            <div>
+                {this.state.counters.map(counter => (
+                    <Counter key={counter.id} value={counter.value} id={counter.id}/>
+                ))}
+            </div>
         );
     }
 }
