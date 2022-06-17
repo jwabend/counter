@@ -1,12 +1,11 @@
-import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers';
+//import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers';
 import React, { Component } from 'react';
 
 class Counter extends Component 
 {
     state = {
-        count: this.props.value,
-        tags: ['tag1', 'tag2' , 'tag3']
-        //imageURL: 'https://picsum.photos/200'
+        count: this.props.counter.value,
+        
     };
 
     styles = {
@@ -37,6 +36,9 @@ class Counter extends Component
         }
     };
 
+    //onDelete = () => this.setState({count: this.state.count = 0})
+    
+
     render() 
     {    
 
@@ -44,6 +46,7 @@ class Counter extends Component
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">+</button>
             <button onClick={this.handleDecrement} className="btn btn-secondary m-2 btn-sm">-</button>
+            <button onClick={() => this.props.onDelete(this.props.counter.id)} className = "btn btn-secondary m-2 btn-md btn-danger">Delete</button>
             </div>);
     };
     
@@ -57,7 +60,6 @@ class Counter extends Component
     formatCount()
     {
         const {count}= this.state;
-        const x = <h1>zero</h1>;
         return count === 0 ? 0 : count;
     };
     
