@@ -5,6 +5,7 @@ class Counter extends Component
 {
     state = {
         count: this.props.counter.value,
+    
         
     };
 
